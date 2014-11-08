@@ -1,0 +1,18 @@
+---
+
+stats:
+    user: test
+    password: some-strong-password
+    uri: /haproxy-stats-33d1ff478677b1ac49e4305785a63d70
+    port: 50331
+
+domains:
+- name: www.example.com
+  container_link_alias: site
+- name: staging.example.com
+  container_link_alias: site-staging
+
+redirects:
+- from: example.com
+  to: www.example.com
+  type: 301

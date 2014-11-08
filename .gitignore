@@ -1,0 +1,3 @@
+haproxy-config-generator-app/vendor
+haproxy-config-generator-app/test/tmp/haproxy.cfg
+*.pyc

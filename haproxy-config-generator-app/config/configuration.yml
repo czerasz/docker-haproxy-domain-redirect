@@ -1,0 +1,18 @@
+---
+
+stats:
+    user: czerasz
+    password: secure-password
+    uri: /haproxy-stats-uri
+    port: 9000
+
+domains:
+- name: www.example.com
+  container_link_alias: website
+- name: blog.example.com
+  container_link_alias: blog
+
+redirects:
+- from: example.com
+  to: www.example.com
+  type: 301
