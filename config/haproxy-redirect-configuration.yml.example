@@ -4,7 +4,7 @@ stats:
     user: test
     password: some-strong-password
     uri: /haproxy-stats-33d1ff478677b1ac49e4305785a63d70
-    port: 50331
+    port: 42081
 
 domains:
 - name: www.example.com
