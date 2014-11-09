@@ -8,10 +8,6 @@ import errno
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
-reload(sys)
-sys.setdefaultencoding("utf-8")
-# <-- UTF-8 universal workaround done
-
 AVAILABLE_ENVIRONMENTS = ["test", "development", "staging", "production"]
 
 # 
@@ -24,6 +20,12 @@ def init(environment="production"):
         configuration_file_path = os.path.join(project_directory, "config", "haproxy-redirect-configuration.yml.example")
         template_file_path = os.path.join(current_file_directory, "templates", "haproxy.cfg.tpl")
         haproxy_configuration_path = os.path.join(current_file_directory, "test", "tmp", "haproxy.cfg")
+    else:
+        # In a docker container the paths are statically defined
+        current_file_directory = os.path.dirname(os.path.abspath(__file__))
+        configuration_file_path = os.path.join("/data", "haproxy", "config", "haproxy-redirect-configuration.yml")
+        template_file_path = os.path.join(current_file_directory, "templates", "haproxy.cfg.tpl")
+        haproxy_configuration_path = os.path.join("/etc", "haproxy", "haproxy.cfg")
 
     # Read the haproxy-redirect-configuration.yml file which contains all the required data 
     configuration_stream = open(configuration_file_path, "r")
@@ -89,9 +91,9 @@ def update_domains_section(domains_configuration, environment):
             if variable_name in os.environ:
                 ip = os.environ.get(variable_name)
             else:
-                print variable_name + " doesn't exist"
+                print(variable_name +" doesn't exist")
                 # Environment variable doesn't exist - exit with error code
-                sys.exit(errno.EINVAL)
+                # sys.exit(errno.EINVAL)
         
         domain["ip"] = ip
 

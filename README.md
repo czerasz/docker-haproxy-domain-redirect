@@ -1,4 +1,14 @@
-# HAProxy Docker Container
+# HAProxy Domain Routing Docker Container
+
+## What
+
+What does this project do?
+
+## How
+
+How does it work?
+
+
 
 ## HAProxy Configuration Generator
 
