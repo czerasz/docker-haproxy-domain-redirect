@@ -4,11 +4,15 @@
 
 What does this project do?
 
+![documentation - overview.png](documentation/documentation-overview.png "documentation - overview.png")
+
+Example
+
+![documentation - example.png](documentation/documentation-example.png "documentation - example.png")
+
 ## How
 
 How does it work?
-
-
 
 ## HAProxy Configuration Generator
 
