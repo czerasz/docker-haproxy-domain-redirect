@@ -119,6 +119,12 @@ To see a sample configuration (`test/tmp/haproxy.cfg`) run:
 
     python app.py test
 
+## Known issues
+
+- "no downtime" deploy doesn't exist
+- when build and run an application container the haproxy-routing container has to be restarted as well
+- no docker init script
+
 ## Resources
 
 - [Viewing HAProxy Statistics](http://www.networkinghowtos.com/howto/viewing-haproxy-statistics/)
